@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f1">
+  <meta name="description" content="Tienda de demostración editable desde un catálogo JSON. Compra sencilla, rápida y sin dependencias.">
+  <title>Tienda Norte — objetos para todos los días</title>
+  <link rel="icon" href="assets/product-placeholder.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#productos">Saltar al catálogo</a>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Tienda Norte, inicio"><span class="brand-mark" aria-hidden="true">N</span><span id="store-name">Tienda Norte</span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="#productos">Catálogo</a><a href="#acerca">Acerca de</a></nav>
+    <a class="cart-link" href="#carrito" id="cart-link" aria-label="Ver carrito">Carrito <span id="cart-count">0</span></a>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow" id="store-tagline">DISEÑO CUIDADO · USO DIARIO</p>
+        <h1 id="hero-title">Pequeñas cosas.<br><span>Buenos días.</span></h1>
+        <p class="hero-description" id="store-description">Objetos útiles y bien hechos para acompañarte todos los días. Elegí tus favoritos y recibílos en casa.</p>
+        <a class="button button-dark" href="#productos">Explorar productos <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" role="img" aria-label="Composición de objetos de diseño"><div class="hero-sun"></div><div class="hero-shape hero-shape-one"></div><div class="hero-shape hero-shape-two"></div><div class="hero-label">HECHO PARA<br>DISFRUTAR</div><div class="hero-caption">Colección<br><strong>esencial Nº 01</strong></div></div>
+    </section>
+
+    <section class="benefits" aria-label="Beneficios"><div><span class="benefit-icon">✳</span><span>Diseño pensado para durar</span></div><div><span class="benefit-icon">↗</span><span>Envíos a todo el país</span></div><div><span class="benefit-icon">♡</span><span>Compra segura y simple</span></div></section>
+
+    <section class="catalog section-wrap" id="productos" aria-labelledby="catalog-title">
+      <div class="section-heading"><div><p class="eyebrow">SELECCIÓN DE LA CASA</p><h2 id="catalog-title">El catálogo</h2></div><p class="catalog-note">Una buena idea para todos los días.</p></div>
+      <div class="catalog-tools">
+        <label class="search-box"><span class="visually-hidden">Buscar productos</span><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar productos…" autocomplete="off"></label>
+        <label class="select-wrap"><span class="visually-hidden">Ordenar productos</span><select id="sort"><option value="featured">Destacados</option><option value="price-asc">Precio: menor a mayor</option><option value="price-desc">Precio: mayor a menor</option><option value="name">Nombre: A–Z</option></select></label>
+      </div>
+      <div class="category-list" id="categories" aria-label="Filtrar por categoría"></div>
+      <p class="result-count" id="result-count" aria-live="polite"></p>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden><span>⌕</span><h3>No encontramos productos</h3><p>Probá con otra búsqueda o categoría.</p></div>
+      <p class="load-error" id="load-error" hidden>No pudimos cargar el catálogo. Revisá que <code>products.json</code> esté disponible y volvé a intentar.</p>
+    </section>
+
+    <section class="about" id="acerca"><div class="about-mark" aria-hidden="true">N.</div><div><p class="eyebrow">UNA TIENDA, MUCHAS IDEAS</p><h2>Elegir menos.<br>Elegir mejor.</h2><p id="about-copy">Somos una tienda independiente que reúne objetos cotidianos con buenos materiales, diseño honesto y detalles que hacen la diferencia.</p></div><div class="about-aside"><span>01 — 03</span><p>Curado con intención.<br>Hecho para quedarse.</p></div></section>
+  </main>
+
+  <footer class="footer"><a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true">N</span><span id="footer-store-name">Tienda Norte</span></a><p>Una tienda demo editable desde un archivo JSON.</p><span id="footer-year"></span></footer>
+
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title"><button class="dialog-close" id="dialog-close" aria-label="Cerrar detalle">×</button><div id="dialog-content"></div></dialog>
+  <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title"><div class="cart-header"><div><p class="eyebrow">TUS FAVORITOS</p><h2 id="cart-title">Tu carrito <span id="cart-dialog-count">(0)</span></h2></div><button class="dialog-close inline-close" id="cart-close" aria-label="Cerrar carrito">×</button></div><div id="cart-items"></div><div class="cart-bottom"><div class="cart-total"><span>Subtotal</span><strong id="cart-total">$0</strong></div><p class="cart-hint" id="cart-hint">Los costos de envío se calculan al coordinar la entrega.</p><div id="checkout-actions"></div></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
